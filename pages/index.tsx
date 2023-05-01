@@ -14,6 +14,7 @@ import { useDisclosure, Drawer,
   Button,} from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
+import DrawerFilter from '@/components/filters/DrawerFilter';
 
 
 export async function getServerSideProps() {
@@ -30,7 +31,8 @@ export async function getServerSideProps() {
 export default function Home({ countries }: {countries: any}) {
   
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnRef = useRef()
+
+  const btnRef = useRef() // drawer account
 
   useEffect(() => {
 
@@ -40,7 +42,9 @@ export default function Home({ countries }: {countries: any}) {
   return (
     <main className="bg-gradient-to-b from-blue-500 to-purple-500 h-screen">
 
+ 
 
+    {/* drawer account */ }
       <Drawer
               isOpen={isOpen}
               placement='left'
@@ -65,12 +69,17 @@ export default function Home({ countries }: {countries: any}) {
           <DrawerHeader>Match</DrawerHeader>
 
           <DrawerHeader>Historique</DrawerHeader>
-
-
         </DrawerContent>
       </Drawer>
+    
+
+
 
       <Header onOpen={onOpen} btnRef={btnRef}/>
+
+      <div className='mt-10 mb-1 md:container md:mx-auto p-4'>
+        <DrawerFilter />
+      </div>
 
       <div className='md:container md:mx-auto md:mt-20'>
         <div className="flex flex-wrap justify-center">
