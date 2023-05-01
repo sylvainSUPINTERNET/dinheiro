@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className="bg-red-900 p-4 text-4xl">
+    <header className="bg-red-900 p-4 text-4xl border-b-2 border-black border-solid">
       <nav>
         <ul>
           <li className='flex justify-center'>
