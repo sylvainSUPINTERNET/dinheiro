@@ -42,6 +42,7 @@ export default function Home({ countries }: {countries: any}) {
 
           setTimeout( () => {
             setCurrent("NOP")
+            setCurrentPic("https://media.discordapp.net/attachments/997271582005264384/1102607582268493924/ricsoft74_view_from_an_elevated_building_Mexico_City_in_the_fut_e8616032-4312-488f-8c43-52f7526a9c32.png?width=984&height=656")
             setClicked(false)
           }, 300)
       }
@@ -51,6 +52,7 @@ export default function Home({ countries }: {countries: any}) {
 
         setTimeout( () => {
           setCurrent("BIG")
+          setCurrentPic("https://cdn.discordapp.com/attachments/1102026209472286781/1102629973371654185/bsqkt_i_want_a_background_using_gradiant_color_and_abstract_sha_d3f18145-4c33-44b8-8369-309996477eb7.png")
           setClicked(false)
         }, 300)
       }
@@ -67,11 +69,12 @@ export default function Home({ countries }: {countries: any}) {
 
 
   const [current, setCurrent] = useState("Sylvain")
+  const [currentPic, setCurrentPic] = useState("https://cdn.discordapp.com/attachments/1102026209472286781/1102629973371654185/bsqkt_i_want_a_background_using_gradiant_color_and_abstract_sha_d3f18145-4c33-44b8-8369-309996477eb7.png")
   const [clicked, setClicked] = useState(false)
 
   return (
     <main className="bg-gradient-to-b from-blue-500 to-purple-500 h-screen">
-    
+
 
     {/* drawer account */ }
       <Drawer
@@ -110,11 +113,17 @@ export default function Home({ countries }: {countries: any}) {
         <DrawerFilter />
       </div>
 
-      <div className={`md:container md:mx-auto md:mt-20 transition-opacity duration-150 ease-out ${clicked ? 'opacity-0' : ''}`}>
+{/*       <div className={`md:container md:mx-auto md:mt-20 transition-opacity duration-150 ease-out ${clicked ? 'opacity-0' : ''}`}>
+ */}     
+
+        <div className={`md:container md:mx-auto md:mt-20`}>
+
         <div className="flex flex-wrap justify-center">
 
-        <div className="relative h-[20em] w-full md:h-[40em] md:w-[40em] mt-5 mb-5 md:mt-0 md:mb-0">
-          <img className="border-2 border-black border-solid absolute top-0 left-0 w-full h-full object-cover md:rounded-tl-lg md:rounded-bl-lg shadow-2xl" src="https://media.discordapp.net/attachments/997271582005264384/1102607582268493924/ricsoft74_view_from_an_elevated_building_Mexico_City_in_the_fut_e8616032-4312-488f-8c43-52f7526a9c32.png?width=984&height=656" alt="your-image-alt" />
+        <div className={`relative h-[20em] w-full md:h-[40em] md:w-[40em] mt-5 mb-5 md:mt-0 md:mb-0 transition-opacity duration-100 ease-out ${clicked ? 'opacity-10' : ''}`}>
+          <img className="border-2 border-black border-solid absolute top-0 left-0 w-full h-full object-cover md:rounded-tl-lg md:rounded-bl-lg shadow-2xl" 
+          
+          src={`${currentPic}`} alt="your-image-alt" />
 
           <button className="border-2 border-black border-solid absolute bottom-[-75px] md:left-40 left-20 transform -translate-y-1/2 py-6 px-8 bg-gradient-to-br from-blue-400 to-purple-500 hover:from-purple-500 hover:to-blue-400 text-white font-bold rounded-full shadow-lg text-2xl transition duration-300 ease-in-out hover:scale-110"
           onClick={e => {
@@ -122,6 +131,7 @@ export default function Home({ countries }: {countries: any}) {
             
             setTimeout( () => {
               setCurrent("NOP")
+              setCurrentPic("https://media.discordapp.net/attachments/997271582005264384/1102607582268493924/ricsoft74_view_from_an_elevated_building_Mexico_City_in_the_fut_e8616032-4312-488f-8c43-52f7526a9c32.png?width=984&height=656")
               setClicked(false)
             }, 300)
 
@@ -134,7 +144,8 @@ export default function Home({ countries }: {countries: any}) {
                       setClicked(true);
           
                       setTimeout( () => {
-                        setCurrent("OK")
+                        setCurrent("BIG")
+                        setCurrentPic("https://cdn.discordapp.com/attachments/1102026209472286781/1102629973371654185/bsqkt_i_want_a_background_using_gradiant_color_and_abstract_sha_d3f18145-4c33-44b8-8369-309996477eb7.png")
                         setClicked(false)
                       }, 300)
           
@@ -151,9 +162,9 @@ export default function Home({ countries }: {countries: any}) {
             <div className="justify-center p-4">
 
 
-              <div className='bg-black bg-opacity-40 text-white p-3 rounded-lg mb-5 text-xl md:text-center'>
+              <div className={`bg-black bg-opacity-40 text-white p-3 rounded-lg mb-5 text-xl md:text-center transition-opacity duration-100 ease-out ${clicked ? 'opacity-10' : ''}`}>
                 <div className="mt-5 mb-5">
-                  <p className="font-bold">{current} Working @ Capgemini - Sotfware Engineer</p>
+                  <p className="font-bold">{current}</p>
                 </div>
 
                 <div className='mt-5 mb-5'>
