@@ -36,3 +36,59 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Supabase
+
+npx supabase init
+
+npx supabase login
+
+npx supabase projects list / create
+
+Copy id and ( require DB password )
+
+npx supabase link --project-ref <ID given by npx supabase projects list> --dns-resolver https
+
+npx supabase migration new <my_migration>
+
+npx supabase dumb / push / commit
+
+npx supabase db push
+
+https://supabase.com/docs/guides/database/api/generating-types
+
+npx supabase gen types typescript --project-id "PROJECT_ID" --schema public > src/supabase.ts
+
+
+
+```` sql
+
+
+INSERT INTO users (
+	firstname,
+	phone,
+	point,
+	lastname,
+	country_code,
+	job_title,
+	description_profil,
+	working_place ) 
+VALUES 
+	('firstname', '+33642561130', ST_MakePoint(-122.4194, 37.7749), 'lastname', 'FR', 'job', 'deeaeazelaelapelapleapzelaple', 'google' );
+COMMIT;
+
+INSERT INTO users (
+	firstname,
+	phone,
+	point,
+	lastname,
+	country_code,
+	job_title,
+	description_profil,
+	working_place ) 
+VALUES 
+	('users2', '+33642561130', ST_MakePoint(-100.4194, 20.7749), 'lastname', 'FR', 'job', 'dsqdsqdqdq', 'cap' );
+COMMIT;
+
+````

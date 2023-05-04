@@ -1,0 +1,1 @@
+ALTER TABLE users ADD COLUMN main_picture_url TEXT;

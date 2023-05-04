@@ -16,19 +16,26 @@ import { useEffect, useRef, useState } from 'react';
 import Image from "next/image";
 import DrawerFilter from '@/components/filters/DrawerFilter';
 
-
 export async function getServerSideProps() {
 
-  let { data } = await supabase.from('countries').select()
+
+  // head : true will only return the count and not the actual data. This is useful if you only need the count and not the data.
+  // count: actually uses the COUNT(*) and will give you the exact number of products but that algorithm is slow.
+  // planned: uses a faster algorithm that might not get you the exact number which might not matter.
+  // estimated: will use exact for small numbers and planned for large numbers.
+
+  const { count, error } = await supabase
+  .from('users')
+  .select('*', { count: 'estimated', head: true });
 
   return {
     props: {
-     countries: data
+      count
     },
   }
 }
 
-export default function Home({ countries }: {countries: any}) {
+export default function Home({ count }: {count: any}) {
   
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -75,7 +82,6 @@ export default function Home({ countries }: {countries: any}) {
   return (
     <main className="bg-gradient-to-b from-blue-500 to-purple-500 h-screen">
 
-
     {/* drawer account */ }
       <Drawer
               isOpen={isOpen}
@@ -108,6 +114,21 @@ export default function Home({ countries }: {countries: any}) {
 
 
       <Header onOpen={onOpen} btnRef={btnRef}/>
+
+      {/* todo */}
+
+      {/* <button onClick={ async e => {
+        console.log(e)
+
+
+        const resp = await supabase.from('users').insert( {
+          firstname: 'Sylvain',
+          lastname: "Joly",
+          phone: "+33642561130",
+          point: st.point(-122.4183, 37.7750)
+        });
+
+      }}>Ici</button> */}
 
       <div className='mt-10 mb-1 md:container md:mx-auto p-4'>
         <DrawerFilter />

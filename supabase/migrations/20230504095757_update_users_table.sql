@@ -1,0 +1,2 @@
+ALTER TABLE users RENAME COLUMN name TO firstname;
+ALTER TABLE users ADD COLUMN lastname TEXT NOT NULL;
