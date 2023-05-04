@@ -73,22 +73,28 @@ INSERT INTO users (
 	country_code,
 	job_title,
 	description_profil,
-	working_place ) 
+	working_place,
+	main_picture_url) 
 VALUES 
-	('firstname', '+33642561130', ST_MakePoint(-122.4194, 37.7749), 'lastname', 'FR', 'job', 'deeaeazelaelapelapleapzelaple', 'google' );
+	('firstname', '+33642561130', ST_MakePoint(2.3522, 48.8566), 'lastname', 'FR', 'job', 'deeaeazelaelapelapleapzelaple', 'google', 'https://cdn.discordapp.com/attachments/1102026209472286781/1102629973371654185/bsqkt_i_want_a_background_using_gradiant_color_and_abstract_sha_d3f18145-4c33-44b8-8369-309996477eb7.png' );
 COMMIT;
 
-INSERT INTO users (
-	firstname,
-	phone,
-	point,
-	lastname,
-	country_code,
-	job_title,
-	description_profil,
-	working_place ) 
-VALUES 
-	('users2', '+33642561130', ST_MakePoint(-100.4194, 20.7749), 'lastname', 'FR', 'job', 'dsqdsqdqdq', 'cap' );
-COMMIT;
+
+SELECT *
+FROM nearby_users(48.8566, 2.3522, 9000) AS result(
+  id INTEGER,
+  point TEXT,
+  phone TEXT,
+  created_at TIMESTAMP,
+  firstname TEXT,
+  lastname TEXT,
+  country_code TEXT,
+  job_title TEXT,
+  description_profil TEXT,
+  working_place TEXT,
+  main_picture_url TEXT,
+  dist_meters FLOAT
+);
+
 
 ````

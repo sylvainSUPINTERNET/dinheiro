@@ -24,9 +24,10 @@ export async function getServerSideProps() {
   // planned: uses a faster algorithm that might not get you the exact number which might not matter.
   // estimated: will use exact for small numbers and planned for large numbers.
 
-  const { count, error } = await supabase
+  const { count } = await supabase
   .from('users')
   .select('*', { count: 'estimated', head: true });
+
 
   return {
     props: {
@@ -81,6 +82,9 @@ export default function Home({ count }: {count: any}) {
 
   return (
     <main className="bg-gradient-to-b from-blue-500 to-purple-500 h-screen">
+
+
+    "WIP" => {count}
 
     {/* drawer account */ }
       <Drawer
